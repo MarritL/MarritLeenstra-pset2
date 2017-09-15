@@ -7,17 +7,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/FillIn"
+        android:text="@string/Fill_In"
         android:textSize="20sp"
         android:padding="20dp"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
-        android:id="@+id/WordsLeft"
+        android:id="@+id/Words_Left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="50dp"
-
         android:layout_gravity="center_horizontal"
         android:text="TODO: words left"
         />
@@ -29,7 +28,7 @@
         android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/GiveWord"
+            android:id="@+id/Give_Word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -47,12 +46,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/ToStory"
+        android:id="@+id/To_Story"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="200dp"
         android:padding="20dp"
-        android:text="@string/ToStory"/>
+        android:text="@string/To_Story"/>
 
 </LinearLayout>
