@@ -37,7 +37,7 @@
             android:text="TODO: GiveWord" />
 
         <Button
-            android:id="@+id/OK"
+            android:id="@+id/button_OK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -46,7 +46,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/To_Story"
+        android:id="@+id/button_To_Story"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
