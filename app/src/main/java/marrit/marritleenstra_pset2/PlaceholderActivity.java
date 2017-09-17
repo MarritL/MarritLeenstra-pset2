@@ -2,12 +2,24 @@ package marrit.marritleenstra_pset2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+
+import java.io.IOException;
 
 public class PlaceholderActivity extends AppCompatActivity {
 
     // add button member
     private Button mButton_To_Story;
+
+    // add tag for debugging
+    public static final String TAG = "StoryApp";
+
+    // add story member
+    public Story mSimple;
+
+    // add other variables
+    private int Count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +31,21 @@ public class PlaceholderActivity extends AppCompatActivity {
 
         // set listener on button
         mButton_To_Story.setOnClickListener(new MyListener());
+        Log.d(TAG, "Listener on Button_To_Story set" );
+
+        // initialise story
+        // for now only the madlib0_simple.txt
+        try {
+            mSimple = new Story(getAssets().open("madlib0_simple.txt"));
+            Log.d(TAG, "created story");
+        }
+        catch (IOException e) {
+            Log.e(TAG, e.getClass().getName());
+        }
+
+        // check how many placeholders
+        Count = mSimple.getPlaceholderCount();
+        // TODO check if working
+        System.out.println(Count);
     }
 }

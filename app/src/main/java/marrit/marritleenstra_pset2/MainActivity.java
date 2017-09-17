@@ -2,12 +2,16 @@ package marrit.marritleenstra_pset2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     // add button member
     private Button mButton_start;
+
+    //for debugging
+    public static final String TAG = "StoryApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,5 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         // set MyListener on button
         mButton_start.setOnClickListener(new MyListener());
+        Log.d(TAG, "Listener on button_start set");
     }
 }
