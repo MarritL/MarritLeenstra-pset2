@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class PlaceholderActivity extends AppCompatActivity {
     private int mCount;
     private int mRemainingCount;
     private TextView mWorldsLeft;
+    public EditText mGiveWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +46,14 @@ public class PlaceholderActivity extends AppCompatActivity {
         mRemainingCount = mSimple.getPlaceholderRemainingCount();
         mWorldsLeft.setText("Still "+mRemainingCount+" word(s) left");
 
+        // initiate EditText with hint of the placeholder
+        mGiveWord = (EditText) findViewById(R.id.Give_Word);
+        mGiveWord.setHint(mSimple.getNextPlaceholder());
+
         // check how many placeholders
-        mCount = mSimple.getPlaceholderCount();
-        // TODO check if working
-        System.out.println(mCount);
+        //mCount = mSimple.getPlaceholderCount();
+        // TODO delete?
+        //System.out.println(mCount);
     }
 
     public void InitialiseStory() {

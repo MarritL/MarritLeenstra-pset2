@@ -32,8 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="TODO: GiveWord" />
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/button_OK"
