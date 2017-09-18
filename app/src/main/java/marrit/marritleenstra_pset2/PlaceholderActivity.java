@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -19,7 +20,9 @@ public class PlaceholderActivity extends AppCompatActivity {
     public Story mSimple;
 
     // add other variables
-    private int Count;
+    private int mCount;
+    private int mRemainingCount;
+    private TextView mWorldsLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,17 @@ public class PlaceholderActivity extends AppCompatActivity {
         // initialise story
         InitialiseStory();
 
+        // initiate TextView
+        mWorldsLeft = (TextView) findViewById(R.id.Words_Left);
+        mRemainingCount = mSimple.getPlaceholderRemainingCount();
+        mWorldsLeft.setText("Still "+mRemainingCount+" word(s) left");
 
         // check how many placeholders
-        Count = mSimple.getPlaceholderCount();
+        mCount = mSimple.getPlaceholderCount();
         // TODO check if working
-        System.out.println(Count);
+        System.out.println(mCount);
     }
+
     public void InitialiseStory() {
         try {
             mSimple = new Story(getAssets().open("madlib0_simple.txt"));
@@ -51,6 +59,6 @@ public class PlaceholderActivity extends AppCompatActivity {
             Log.e(TAG, e.getClass().getName());
         }
     }
-    
+
 
 }
