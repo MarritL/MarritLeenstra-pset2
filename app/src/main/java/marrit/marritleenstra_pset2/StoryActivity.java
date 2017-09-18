@@ -35,7 +35,7 @@ public class StoryActivity extends AppCompatActivity {
         mButton_Restart = (Button) findViewById(R.id.button_restart);
 
         // add listener to button
-        mButton_Restart.setOnClickListener(new MyListener());
+        mButton_Restart.setOnClickListener(new MyActivityListener());
 
 
 

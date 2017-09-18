@@ -8,7 +8,7 @@ import android.view.View;
  * Created by Marrit on 14-9-2017.
  */
 
-public class MyListener implements View.OnClickListener {
+public class MyActivityListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
@@ -33,3 +33,5 @@ public class MyListener implements View.OnClickListener {
     }
 
 }
+
+

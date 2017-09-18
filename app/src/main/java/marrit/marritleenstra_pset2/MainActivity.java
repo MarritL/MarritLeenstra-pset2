@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mButton_start = (Button) findViewById(R.id.button_start);
 
         // set MyListener on button
-        mButton_start.setOnClickListener(new MyListener());
+        mButton_start.setOnClickListener(new MyActivityListener());
         Log.d(TAG, "Listener on button_start set");
     }
 }
