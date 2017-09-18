@@ -34,7 +34,15 @@ public class PlaceholderActivity extends AppCompatActivity {
         Log.d(TAG, "Listener on Button_To_Story set" );
 
         // initialise story
-        // for now only the madlib0_simple.txt
+        InitialiseStory();
+
+
+        // check how many placeholders
+        Count = mSimple.getPlaceholderCount();
+        // TODO check if working
+        System.out.println(Count);
+    }
+    public void InitialiseStory() {
         try {
             mSimple = new Story(getAssets().open("madlib0_simple.txt"));
             Log.d(TAG, "created story");
@@ -42,10 +50,7 @@ public class PlaceholderActivity extends AppCompatActivity {
         catch (IOException e) {
             Log.e(TAG, e.getClass().getName());
         }
-
-        // check how many placeholders
-        Count = mSimple.getPlaceholderCount();
-        // TODO check if working
-        System.out.println(Count);
     }
+    
+
 }
