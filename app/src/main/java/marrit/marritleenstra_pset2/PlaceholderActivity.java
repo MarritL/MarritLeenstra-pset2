@@ -1,6 +1,7 @@
 package marrit.marritleenstra_pset2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,14 +23,12 @@ public class PlaceholderActivity extends AppCompatActivity {
     public static final String TAG = "StoryApp";
 
     // add story member
-    public Story mSimple;
+    public static Story mSimple;
 
     // add other variables
-    private int mCount;
-    private int mRemainingCount;
     private TextView mWorldsLeft;
     public EditText mGiveWord;
-    private String mWord;
+    
 
     // string for key-value pair for use with Intent Extra
     public static final String EXTRA_PASS_STORY = "marrit.marritLeenstra_pset2.PassStory";
@@ -70,10 +69,6 @@ public class PlaceholderActivity extends AppCompatActivity {
             }
         });
 
-
-        // poging om story static te maken, zelfde foutmelding
-        public static final String STORY_FINAL = mSimple.toString();
-
     }
 
     public void InitialiseStory() {
@@ -85,17 +80,5 @@ public class PlaceholderActivity extends AppCompatActivity {
             Log.e(TAG, e.getClass().getName());
         }
     }
-
-    // poging om de story beschikbaar te maken in de Listener, maar werkte niet.
-    // method from https://developer.android.com/training/basics/data-storage/shared-preferences.html
-    public void ShareStory() {
-        // put story in schared preferences
-        SharedPreferences preferences = getPreferences(Context.MODE_APPEND);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(EXTRA_PASS_STORY, mSimple.toString());
-        editor.commit();
-    }
-
-
 
 }
