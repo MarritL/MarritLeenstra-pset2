@@ -1,8 +1,5 @@
 package marrit.marritleenstra_pset2;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class PlaceholderActivity extends AppCompatActivity {
 
@@ -22,13 +20,15 @@ public class PlaceholderActivity extends AppCompatActivity {
     // add tag for debugging
     public static final String TAG = "StoryApp";
 
+    private String storyNames[];
+
     // add story member
     public static Story mSimple;
 
     // add other variables
     private TextView mWorldsLeft;
     public EditText mGiveWord;
-    
+
 
     // string for key-value pair for use with Intent Extra
     public static final String EXTRA_PASS_STORY = "marrit.marritLeenstra_pset2.PassStory";
@@ -47,8 +47,16 @@ public class PlaceholderActivity extends AppCompatActivity {
         mButton_To_Story.setOnClickListener(new MyActivityListener());
         Log.d(TAG, "Listener on Button_To_Story set" );
 
-        // initialise story
-        InitialiseStory();
+        // initiate storyNames[]
+        storyNames = new String[] {"madlib0_simple.txt", "madlib1_tarzan.txt",
+                "madlib2_university.txt", "madlib3_clothes.txt", "madlib4_dance.txt"};
+
+        // get a random number
+        Random rand = new Random();
+        int i = rand.nextInt(5);
+
+        // initialise random story
+        InitialiseStory(storyNames[i]);
 
         // initiate TextView
         mWorldsLeft = (TextView) findViewById(R.id.Words_Left);
@@ -71,9 +79,9 @@ public class PlaceholderActivity extends AppCompatActivity {
 
     }
 
-    public void InitialiseStory() {
+    public void InitialiseStory(String storyName) {
         try {
-            mSimple = new Story(getAssets().open("madlib0_simple.txt"));
+            mSimple = new Story(getAssets().open(storyName));
             Log.d(TAG, "created story");
         }
         catch (IOException e) {
