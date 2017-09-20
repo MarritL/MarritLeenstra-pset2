@@ -23,7 +23,7 @@ public class PlaceholderActivity extends AppCompatActivity {
     private String storyNames[];
 
     // add story member
-    public static Story mSimple;
+    public static Story story;
 
     // add other variables
     private TextView mWorldsLeft;
@@ -60,19 +60,19 @@ public class PlaceholderActivity extends AppCompatActivity {
 
         // initiate TextView
         mWorldsLeft = (TextView) findViewById(R.id.Words_Left);
-        mWorldsLeft.setText("Still "+mSimple.getPlaceholderRemainingCount()+" word(s) left");
+        mWorldsLeft.setText("Still "+story.getPlaceholderRemainingCount()+" word(s) left");
 
         // initiate EditText with hint of the placeholder
         mGiveWord = (EditText) findViewById(R.id.Give_Word);
-        mGiveWord.setHint(mSimple.getNextPlaceholder());
+        mGiveWord.setHint(story.getNextPlaceholder());
 
         // implement buttonOK
         mButtonOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSimple.fillInPlaceholder(mGiveWord.getText().toString());
-                mGiveWord.setHint(mSimple.getNextPlaceholder());
-                mWorldsLeft.setText("Still "+mSimple.getPlaceholderRemainingCount()+" word(s) left");
+                story.fillInPlaceholder(mGiveWord.getText().toString());
+                mGiveWord.setHint(story.getNextPlaceholder());
+                mWorldsLeft.setText("Still "+story.getPlaceholderRemainingCount()+" word(s) left");
                 mGiveWord.setText("");
             }
         });
@@ -81,7 +81,7 @@ public class PlaceholderActivity extends AppCompatActivity {
 
     public void InitialiseStory(String storyName) {
         try {
-            mSimple = new Story(getAssets().open(storyName));
+            story = new Story(getAssets().open(storyName));
             Log.d(TAG, "created story");
         }
         catch (IOException e) {

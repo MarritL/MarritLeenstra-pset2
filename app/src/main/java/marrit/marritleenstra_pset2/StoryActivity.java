@@ -1,6 +1,7 @@
 package marrit.marritleenstra_pset2;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,9 +17,8 @@ public class StoryActivity extends AppCompatActivity {
 
     // add variables
     private TextView mStoryTextView;
-    private String text;
+    private String storyText;
     public static final String TAG = "StoryApp";
-    private Story mSimple;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,19 @@ public class StoryActivity extends AppCompatActivity {
         mButton_Restart.setOnClickListener(new MyActivityListener());
 
         //load story
-        text = getIntent().getStringExtra(EXTRA_PASS_STORY);
-        mStoryTextView.setText(text);
+        storyText = getIntent().getStringExtra(EXTRA_PASS_STORY);
+        mStoryTextView.setText(storyText);
 
     }
+
+    // source: https://stackoverflow.com/questions/27129353/android-back-navigation
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(StoryActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
 
 }

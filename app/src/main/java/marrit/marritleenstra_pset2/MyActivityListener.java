@@ -26,7 +26,7 @@ public class MyActivityListener implements View.OnClickListener {
             // start StoryActivity
             intent = new Intent(view.getContext(), StoryActivity.class);
             // put story as intent Extra
-            intent.putExtra(PlaceholderActivity.EXTRA_PASS_STORY,PlaceholderActivity.mSimple.toString());
+            intent.putExtra(PlaceholderActivity.EXTRA_PASS_STORY,PlaceholderActivity.story.toString());
             Log.d(PlaceholderActivity.TAG, "something went wrong at intent.putExtra");
         }
         else  {
