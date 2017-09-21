@@ -25,24 +25,25 @@ public class MyOKListener implements View.OnClickListener {
         // fill in the word in the text or ask for a word via a toast
         if (!mGiveWord.getText().toString().matches("")) {
             story.fillInPlaceholder(mGiveWord.getText().toString());
+
+            // update placeholder in all views
+            if (story.getPlaceholderRemainingCount() > 0) {
+                mGiveWord.setHint(PlaceholderActivity.story.getNextPlaceholder());
+                mGiveWord.setText("");
+            }
+            // if last word is filled in enable the button to read the full story
+            else {
+                mLast = true;
+                mGiveWord.setVisibility(View.INVISIBLE);
+                mButtonOK.setVisibility(View.INVISIBLE);
+                mButton_To_Story.setVisibility(View.VISIBLE);
+            }
+
+            // update mWordsLeft text
+            mWorldsLeft.setText("Still " + story.getPlaceholderRemainingCount() + " word(s) left");
         }
         else {
             Toast.makeText(view.getContext(), R.string.Toast_fill_in, Toast.LENGTH_SHORT).show();
-        }
-
-        // update placeholder in all views
-        if (story.getPlaceholderRemainingCount() > 0) {
-            mGiveWord.setHint(PlaceholderActivity.story.getNextPlaceholder());
-            mGiveWord.setText("");
-            mWorldsLeft.setText("Still " + story.getPlaceholderRemainingCount() + " word(s) left");
-        }
-        // if last word is filled in enable the button to read the full story
-        else {
-            mLast = true;
-            mGiveWord.setVisibility(View.INVISIBLE);
-            mButtonOK.setVisibility(View.INVISIBLE);
-            mButton_To_Story.setVisibility(View.VISIBLE);
-            mWorldsLeft.setText("Still " + story.getPlaceholderRemainingCount() + " word(s) left");
         }
 
     }

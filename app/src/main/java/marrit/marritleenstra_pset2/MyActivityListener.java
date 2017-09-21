@@ -1,13 +1,12 @@
 package marrit.marritleenstra_pset2;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 
 
 /**
  * Created by Marrit on 14-9-2017.
+ * Non-Anonymous OnClick listener to go to another activity within the app.
  */
 
 public class MyActivityListener implements View.OnClickListener {
