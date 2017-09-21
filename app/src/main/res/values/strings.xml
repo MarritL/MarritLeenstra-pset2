@@ -19,4 +19,5 @@
         /<persons-name/>".</string>
     <string name="done">Make another story</string>
     <string name="Toast_fill_in">Give a word!</string>
+    <string name="draw">Madlib drawing</string>
 </resources>

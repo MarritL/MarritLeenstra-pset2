@@ -9,7 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/madlibs"
-        android:layout_gravity="left"/>
+        android:layout_gravity="start"
+        android:contentDescription="@string/draw"/>
 
     <TextView
         android:id="@+id/editText"
@@ -18,13 +19,13 @@
         android:ems="10"
         android:padding="15dp"
         android:text="@string/welcome"
-        android:layout_gravity="center|right"/>
+        android:layout_gravity="center|end"/>
 
     <Button
         android:id="@+id/button_start"
         android:layout_width="306dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="10dp"
         android:text="@string/start" />
 

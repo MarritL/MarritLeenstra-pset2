@@ -61,7 +61,7 @@ public class PlaceholderActivity extends AppCompatActivity {
             mLast = savedInstanceState.getBoolean(LAST);
 
             // hide some views and make the button visible if the last word is filled in already
-            if (mLast == true) {
+            if (mLast) {
                 mGiveWord.setVisibility(View.INVISIBLE);
                 mButtonOK.setVisibility(View.INVISIBLE);
                 mButton_To_Story.setVisibility(View.VISIBLE);

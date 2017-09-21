@@ -10,7 +10,8 @@
         android:id="@+id/MadLibs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/madlibs" />
+        app:srcCompat="@drawable/madlibs"
+        android:contentDescription="@string/draw"/>
 
     <TextView
         android:id="@+id/editText"

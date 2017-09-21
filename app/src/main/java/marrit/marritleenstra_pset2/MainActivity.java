@@ -7,9 +7,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    // add button member
-    private Button mButton_start;
-
     //for debugging
     public static final String TAG = "StoryApp";
 
@@ -19,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // initiate button
-        mButton_start = (Button) findViewById(R.id.button_start);
+        Button mButton_start = (Button) findViewById(R.id.button_start);
 
         // set MyListener on button
         mButton_start.setOnClickListener(new MyActivityListener());
