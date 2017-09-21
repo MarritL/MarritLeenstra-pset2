@@ -7,6 +7,7 @@ import static marrit.marritleenstra_pset2.PlaceholderActivity.mGiveWord;
 import static marrit.marritleenstra_pset2.PlaceholderActivity.mWorldsLeft;
 import static marrit.marritleenstra_pset2.PlaceholderActivity.mButtonOK;
 import static marrit.marritleenstra_pset2.PlaceholderActivity.mButton_To_Story;
+import static marrit.marritleenstra_pset2.PlaceholderActivity.mLast;
 
 /**
  * Created by Marrit on 18-9-2017.
@@ -28,6 +29,7 @@ public class MyOKListener implements View.OnClickListener {
             mWorldsLeft.setText("Still " + story.getPlaceholderRemainingCount() + " word(s) left");
         }
         else {
+            mLast = true;
             mGiveWord.setVisibility(View.INVISIBLE);
             mButtonOK.setVisibility(View.INVISIBLE);
             mButton_To_Story.setVisibility(View.VISIBLE);
