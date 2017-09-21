@@ -3,6 +3,7 @@ package marrit.marritleenstra_pset2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,7 +14,7 @@ import java.util.Random;
 public class PlaceholderActivity extends AppCompatActivity {
 
     // add button member
-    private Button mButton_To_Story;
+    public static Button mButton_To_Story;
     public static Button mButtonOK;
 
     // add tag for debugging
@@ -43,7 +44,8 @@ public class PlaceholderActivity extends AppCompatActivity {
         mButton_To_Story = (Button) findViewById(R.id.button_To_Story);
         mButtonOK = (Button) findViewById(R.id.button_OK);
 
-        // set listener on button
+        // hide button to story until story is complete, and set the ActivityListener on it. 
+        mButton_To_Story.setVisibility(View.INVISIBLE);
         mButton_To_Story.setOnClickListener(new MyActivityListener());
         Log.d(TAG, "Listener on Button_To_Story set" );
 

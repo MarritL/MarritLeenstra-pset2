@@ -18,11 +18,7 @@ public class MyActivityListener implements View.OnClickListener {
         Intent intent;
 
         // check which element is clicked
-        if (view == view.findViewById(R.id.button_start)) {
-            // start PlaceholderActivity
-            intent = new Intent(view.getContext(), PlaceholderActivity.class);
-                    }
-        else if (view == view.findViewById(R.id.button_To_Story)) {
+        if (view == view.findViewById(R.id.button_To_Story)) {
             // start StoryActivity
             intent = new Intent(view.getContext(), StoryActivity.class);
             // put story as intent Extra
@@ -30,8 +26,8 @@ public class MyActivityListener implements View.OnClickListener {
             Log.d(PlaceholderActivity.TAG, "something went wrong at intent.putExtra");
         }
         else  {
-            // go back to MainActivity
-            intent = new Intent (view.getContext(), MainActivity.class);
+            // start PlaceholderActivity to make a new story (both from mainActivity and storyActivity)
+            intent = new Intent(view.getContext(), PlaceholderActivity.class);
         }
 
         view.getContext().startActivity(intent);
