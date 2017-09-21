@@ -21,7 +21,7 @@ public class PlaceholderActivity extends AppCompatActivity {
     public static final String TAG = "StoryApp";
 
     // add array for all storynames
-    private String mstoryNames[];
+    //private String mstoryNames[];
 
     // add story member
     public static Story story;
@@ -41,18 +41,19 @@ public class PlaceholderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_placeholder);
 
-        // initiate buttons
+        // initiate views
         mButton_To_Story = (Button) findViewById(R.id.button_To_Story);
         mButtonOK = (Button) findViewById(R.id.button_OK);
+        mGiveWord = (EditText) findViewById(R.id.Give_Word);
+        mWorldsLeft = (TextView) findViewById(R.id.Words_Left);
+
+        // initiate variables
+        mLast = false;
 
         // hide button to story until story is complete, and set the ActivityListener on it.
         mButton_To_Story.setVisibility(View.INVISIBLE);
         mButton_To_Story.setOnClickListener(new MyActivityListener());
-        Log.d(TAG, "Listener on Button_To_Story set" );
 
-        // initiate mLast
-        mLast = false;
-        mGiveWord = (EditText) findViewById(R.id.Give_Word);
 
         // save story and whether last word is filled in on rotation
         if (savedInstanceState != null) {
@@ -71,12 +72,8 @@ public class PlaceholderActivity extends AppCompatActivity {
             InitialiseStory();
         }
 
-        // initiate TextView
-        mWorldsLeft = (TextView) findViewById(R.id.Words_Left);
+        // set text/hint in Views
         mWorldsLeft.setText("Still "+ story.getPlaceholderRemainingCount() +" word(s) left");
-
-        // initiate EditText with hint of the placeholder
-        //mGiveWord = (EditText) findViewById(R.id.Give_Word);
         mGiveWord.setHint(story.getNextPlaceholder());
 
         // set listener on OK-button
@@ -84,9 +81,9 @@ public class PlaceholderActivity extends AppCompatActivity {
 
     }
 
-    // method to initialse a random Story
+    // method to initialise a random Story
     public void InitialiseStory() {
-        mstoryNames = new String[] {"madlib0_simple.txt", "madlib1_tarzan.txt",
+        String[] mstoryNames = new String[] {"madlib0_simple.txt", "madlib1_tarzan.txt",
                 "madlib2_university.txt", "madlib3_clothes.txt", "madlib4_dance.txt"};
 
         // get a random number
@@ -96,16 +93,16 @@ public class PlaceholderActivity extends AppCompatActivity {
         String mStoryName;
         mStoryName = mstoryNames[i];
 
+        // create the story
         try {
             story = new Story(getAssets().open(mStoryName));
-            Log.d(TAG, "created story");
         }
         catch (IOException e) {
             Log.e(TAG, e.getClass().getName());
         }
     }
 
-    //TODO
+    // support rotation
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);

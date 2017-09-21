@@ -23,7 +23,6 @@ public class StoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story);
-        Log.d(TAG, "Created StoryActivity");
 
         // Initiate button and TextView
         mButton_Restart = (Button) findViewById(R.id.button_restart);

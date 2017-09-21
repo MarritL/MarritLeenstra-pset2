@@ -1,6 +1,7 @@
 package marrit.marritleenstra_pset2;
 
 import android.view.View;
+import android.widget.Toast;
 
 import static marrit.marritleenstra_pset2.PlaceholderActivity.story;
 import static marrit.marritleenstra_pset2.PlaceholderActivity.mGiveWord;
@@ -21,13 +22,21 @@ public class MyOKListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        story.fillInPlaceholder(mGiveWord.getText().toString());
+        // fill in the word in the text or ask for a word via a toast
+        if (!mGiveWord.getText().toString().matches("")) {
+            story.fillInPlaceholder(mGiveWord.getText().toString());
+        }
+        else {
+            Toast.makeText(view.getContext(), R.string.Toast_fill_in, Toast.LENGTH_SHORT).show();
+        }
 
+        // update placeholder in all views
         if (story.getPlaceholderRemainingCount() > 0) {
             mGiveWord.setHint(PlaceholderActivity.story.getNextPlaceholder());
             mGiveWord.setText("");
             mWorldsLeft.setText("Still " + story.getPlaceholderRemainingCount() + " word(s) left");
         }
+        // if last word is filled in enable the button to read the full story
         else {
             mLast = true;
             mGiveWord.setVisibility(View.INVISIBLE);
